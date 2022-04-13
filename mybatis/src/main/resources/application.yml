@@ -1,0 +1,13 @@
+server:
+  port: 1022
+# 数据源
+spring:
+  datasource:
+    url: jdbc:mysql://61.162.60.54:3306/test1
+    username: root
+    password: bitware2022dev
+
+
+# mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/userBean/*.xml    # mapper映射文件位置

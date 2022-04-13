@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatis.userbean.mapper.UserMapper">
+<!--    <insert id="insert">-->
+<!--        insert into t_user values(5,'admin1','123')-->
+<!--    </insert>-->
+<!--    <resultMap id="UserEntityMap" type="com.example.sqldemo.user.User">-->
+<!--        <id column="uid" property="uid"/>-->
+<!--        <result column="is_delete" property="isDelete"/>-->
+<!--        <result column="created_user" property="createdUser"/>-->
+<!--        <result column="created_time" property="createdTime"/>-->
+<!--        <result column="modified_user" property="modifiedUser"/>-->
+<!--        <result column="modified_time" property="modifiedTime"/>-->
+<!--    </resultMap>-->
+
+<!--
+
+    查询功能的标签必须设置 resultType 或 resultMap
+    resultTyoe: 设置默认的映射关系 （结果的字段名作为属性名赋值）（实体类属性一定要和sql的字段名保持一致）
+    resulMap: 设置自定义的映射关系   （字段名和属性名不一样才要用到 resulMap）
+
+
+    类型别名不区分大小写
+
+    mybatis获得参数的两种方式：
+    ${}  本质 字符串拼接
+    #{}  本质 占位符赋值
+
+-->
+    <select id="selectByuser" resultType="com.example.mybatis.userbean.user.Userbean">
+        select *
+        from t_user
+        where username=#{username} and password=#{password}
+    </select>
+
+
+    <select id="select" resultType="com.example.mybatis.userbean.user.Userbean">
+        select *
+        from t_user
+    </select>
+
+    <delete id="delete">
+        delete
+        from t_user
+        where id=#{id}
+    </delete>
+
+
+
+</mapper>

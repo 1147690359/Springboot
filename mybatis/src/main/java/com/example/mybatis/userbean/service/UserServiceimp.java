@@ -43,7 +43,7 @@ public class UserServiceimp  {
      * @return list 查询出来的所有信息
      */
     public List userBy(){
-            List list=userMapper.select();
+            List list=userMapper.selecta();
             return list;
     }
 

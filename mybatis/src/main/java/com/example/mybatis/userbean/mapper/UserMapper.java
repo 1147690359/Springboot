@@ -26,11 +26,11 @@ public interface UserMapper {
       * 查询表中的所有信息
       * @return
       */
-     List select();
+     List<Userbean> selecta();
 
      /**
       * 根据id删除 对应的行
-      * @param id
+      * @param
       * @return 影响的行数
       */
      int delete(Userbean userbean);

@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin
+//@CrossOrigin
 @RestController
 public class User {
 
@@ -61,6 +61,22 @@ public class User {
     public int delete(@RequestBody Userbean userbean){
         return userServiceimp.delete(userbean);
     }
+
+    /**
+     * 向 t_user 中添加 账号密码
+     * @param
+     * @return
+     */
+    @PostMapping("ins")
+    public int ins (@RequestBody Userbean userbean){
+        return userServiceimp.insert(userbean);
+    }
+
+    @PutMapping("/update")
+    public int update (@RequestBody Userbean userbean){
+        return userServiceimp.update(userbean);
+    }
+
 
 
 

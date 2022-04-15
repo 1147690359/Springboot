@@ -58,5 +58,21 @@ public class UserServiceimp  {
     }
 
 
+    /**
+     * 向t_user中添加 username password
+     * @param userbean
+     * @return 影响行数
+     */
+    public int insert(Userbean userbean){
+        int ins= userMapper.insert(userbean);
+        return ins;
+    }
+
+    public int update(Userbean userbean){
+        int update=userMapper.update(userbean);
+        return update;
+    }
+
+
 
 }

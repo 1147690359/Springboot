@@ -47,6 +47,17 @@
         where id=#{id}
     </delete>
 
+    <insert id="insert">
+        insert into t_user value (null,#{username},#{password})
+
+    </insert>
+
+    <update id="update">
+        update t_user set username=#{username} , password=#{password}
+        where id=#{id}
+    </update>
+
+
 
 
 </mapper>

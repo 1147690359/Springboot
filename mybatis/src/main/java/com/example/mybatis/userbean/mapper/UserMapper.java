@@ -36,5 +36,18 @@ public interface UserMapper {
      int delete(Userbean userbean);
 
 
+     /**
+      *  t_user中添加username 和 password
+      * @param userbean
+      * @return 影响的行数
+      */
+     int insert(Userbean userbean);
+
+     /**
+      * 根据id 修改
+      * @param userbean
+      * @return
+      */
+     int update(Userbean userbean);
 
 }

@@ -23,8 +23,8 @@ public class UserServiceimp  {
 
 
     /**
-     * ²éÑ¯±íÖĞµÄËùÓĞĞÅÏ¢
-     * @return list ²éÑ¯³öÀ´µÄËùÓĞĞÅÏ¢
+     * æŸ¥è¯¢è¡¨ä¸­çš„æ‰€æœ‰ä¿¡æ¯
+     * @return list æŸ¥è¯¢å‡ºæ¥çš„æ‰€æœ‰ä¿¡æ¯
      */
     public List userBy(){
             List list=userMapper.select();

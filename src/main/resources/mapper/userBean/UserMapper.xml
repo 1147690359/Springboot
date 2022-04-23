@@ -47,13 +47,13 @@
 <!--    </select>-->
     
     <insert id="insertUser">
-        insert into t_user value (null,#{username},#{password},#{name},#{address})
+        insert into t_user value (null,#{username},#{password},#{name},#{address},#{date},#{email})
     </insert>
 
 
     <update id="updateUser">
         update t_user
-        set username = #{username},password = #{password},name = #{name},address = #{address}
+        set username = #{username},password = #{password},name = #{name},address = #{address},email = #{email}
         where id = #{id}
     </update>
 

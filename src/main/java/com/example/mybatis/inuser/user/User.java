@@ -19,4 +19,7 @@ public class User {
 
     private Integer size;
     private Integer begin;
+
+    private String date;
+    private String email;
 }

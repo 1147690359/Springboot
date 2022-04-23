@@ -4,10 +4,13 @@ package com.example.mybatis.inuser.service;
 import com.example.mybatis.inuser.mapper.UserMapper;
 
 import com.example.mybatis.inuser.user.User;
+import com.example.mybatis.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +53,16 @@ public class UserServiceimp  {
 
 
     public Map<String, Object> insertUser(User user){
+
+        String format = "YYYY-MM-dd hh:mm:ss";
+        // DateTimeFormatter.ofPattern方法根据指定的格式输出时间
+        String formatDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
+
+        System.out.println(formatDateTime);
+        user.setDate(formatDateTime);
+
+
+
         Map<String,Object > map=new HashMap<>();
         int in = userMapper.insertUser(user);
         if (in == 0){
@@ -79,8 +92,10 @@ public class UserServiceimp  {
             map.put("index","null");
         }else {
             map.put("index","have");
-            map.put("sccessToke","asdfghjkl");
+
             session.setAttribute("loginUser",user.getUsername());
+            String token= TokenUtil.sign(user);
+            map.put("sccessToke",token);
         }
         return map;
     }

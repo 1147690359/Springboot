@@ -22,4 +22,5 @@ public class User {
 
     private String date;
     private String email;
+    private String baseImg;
 }

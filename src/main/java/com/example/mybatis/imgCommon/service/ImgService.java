@@ -21,8 +21,7 @@ import java.util.UUID;
 public class ImgService  {
 
 
-//    @Resource
-//    private ImgMapper imgMapper;
+
 
     public Map<String,Object> UploadPicture (MultipartFile file)  throws IOException {
         //上传文件的名字

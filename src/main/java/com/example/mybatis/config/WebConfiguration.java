@@ -37,6 +37,9 @@ public class WebConfiguration implements WebMvcConfigurer {
         excludePath.add("/static/**");  //静态资源
         excludePath.add("/assets/**");  //静态资源
         excludePath.add("/index");
+        excludePath.add("/static/images/**");
+        excludePath.add("/image/*");
+
 
         InterceptorRegistration interceptorRegistration = registry.addInterceptor(tokenInterceptor);
         // 拦截地址

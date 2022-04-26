@@ -4,6 +4,7 @@ package com.example.mybatis.inuser.user;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 @AllArgsConstructor
@@ -22,5 +23,11 @@ public class User {
 
     private String date;
     private String email;
+
+    //img转的base64
     private String baseImg;
+
+    //图片的位置
+    private String imgUrl;
+
 }

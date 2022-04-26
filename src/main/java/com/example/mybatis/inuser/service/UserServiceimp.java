@@ -1,14 +1,17 @@
 package com.example.mybatis.inuser.service;
 
 
+import com.example.mybatis.imgCommon.service.ImgService;
 import com.example.mybatis.inuser.mapper.UserMapper;
 
 import com.example.mybatis.inuser.user.User;
 import com.example.mybatis.util.TokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -21,6 +24,9 @@ public class UserServiceimp  {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private ImgService imgService;
 
 
 
@@ -54,14 +60,13 @@ public class UserServiceimp  {
 
     public Map<String, Object> insertUser(User user){
 
+        //获取注册的时间
         String format = "YYYY-MM-dd hh:mm:ss";
         // DateTimeFormatter.ofPattern方法根据指定的格式输出时间
         String formatDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern(format));
-
+        //控制台 打印获取的时间
         System.out.println(formatDateTime);
         user.setDate(formatDateTime);
-
-
 
         Map<String,Object > map=new HashMap<>();
         int in = userMapper.insertUser(user);
@@ -93,7 +98,9 @@ public class UserServiceimp  {
         }else {
             map.put("index","have");
 
-            session.setAttribute("loginUser",user.getUsername());
+//            session.setAttribute("loginUser",user.getUsername());
+
+            //签发的Token
             String token= TokenUtil.sign(user);
             map.put("sccessToke",token);
         }

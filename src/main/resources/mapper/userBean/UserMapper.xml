@@ -47,7 +47,7 @@
 <!--    </select>-->
     
     <insert id="insertUser">
-        insert into t_user value (null,#{username},#{password},#{name},#{address},#{date},#{email},#{baseImg})
+        insert into t_user value (null,#{username},#{password},#{name},#{address},#{date},#{email},#{baseImg},#{imgUrl})
     </insert>
 
 

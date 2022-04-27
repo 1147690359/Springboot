@@ -10,11 +10,6 @@ spring:
   mvc:
     static-path-pattern: /static/**
 
-file:
-  upload:
-    dir: /src/main/resources/static/images/
-
-
   devtools:
     restart:
       # 设置热部署生效
@@ -23,6 +18,11 @@ file:
       additional-paths: src/main
       # WEB-INF目录下内容发生更改不重启
       exclude: WEB-INF/*
+
+file:
+  upload:
+    dir: /src/main/resources/static/images/
+
 
 
 # mybatis配置

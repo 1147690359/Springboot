@@ -33,5 +33,6 @@ public interface UserMapper {
 
      List<User> index(User user);
 
+     String imgUrl(User user);
 
 }

@@ -98,8 +98,10 @@ public class UserServiceimp  {
         }else {
             map.put("index","have");
 
+            //获取图片的位置
+            String imgUrl = userMapper.imgUrl(user);
 //            session.setAttribute("loginUser",user.getUsername());
-
+            map.put("imgUrl",imgUrl);
             //签发的Token
             String token= TokenUtil.sign(user);
             map.put("sccessToke",token);

@@ -64,6 +64,12 @@
         where username=#{username} and password=#{password}
     </select>
 
+    <select id="imgUrl" resultType="java.lang.String">
+        select imgUrl
+        from t_user
+        where username=#{username} and password=#{password}
+    </select>
+
 
 
 </mapper>

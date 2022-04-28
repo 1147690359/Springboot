@@ -125,7 +125,6 @@ public class UserServiceimp  {
             map.put("index","null");
             return map;
         }
-
         //数据库中的密码与 输入的密码进行判断
         boolean aa = SecurityUtils.matchesPassword(user.getPassword(), encode);
 

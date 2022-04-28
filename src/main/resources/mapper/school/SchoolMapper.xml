@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mybatis.school.mapper.SchoolMapper">
+
+    <!--
+        查询功能的标签必须设置 resultType 或 resultMap
+        resultTyoe: 设置默认的映射关系 （结果的字段名作为属性名赋值）（实体类属性一定要和sql的字段名保持一致）
+        resulMap: 设置自定义的映射关系   （字段名和属性名不一样才要用到 resulMap）
+
+
+        类型别名不区分大小写
+
+        mybatis获得参数的两种方式：
+        ${}  本质 字符串拼接
+        #{}  本质 占位符赋值
+    -->
+    <resultMap id="courseUser" type="com.example.mybatis.school.user.CourseUser">
+        <id property="c_id" column="c_id" jdbcType="INTEGER"></id>
+        <result property="c_name" column="c_name" jdbcType="VARCHAR"></result>
+        <result property="c_time" column="c_time" jdbcType="INTEGER"></result>
+        <result property="c_number" column="c_number" jdbcType="INTEGER"></result>
+        <!--一对多映射用这个  ofTyp是一对多的集合的所存放的实体类  javaType实体类的属性类型-->
+        <association property="teacherUser" javaType="com.example.mybatis.school.user.TeacherUser">
+            <id property="t_id" column="t.id" jdbcType="INTEGER"></id>
+            <result property="name" column="t.name" jdbcType="VARCHAR"></result>
+            <result property="sex" column="t.sex" jdbcType="VARCHAR"></result>
+            <result property="z_name" column="t.z_name" jdbcType="VARCHAR"></result>
+            <result property="office" column="t.office" jdbcType="VARCHAR"></result>
+        </association>
+        <collection property="studentUsers" ofType="com.example.mybatis.school.user.StudentUser" javaType="list">
+            <id property="s_id" column="s.id" jdbcType="INTEGER"></id>
+            <result property="name" column="s.name" jdbcType="VARCHAR"></result>
+            <result property="sex" column="s.sex" jdbcType="VARCHAR"></result>
+            <result property="system" column="s.system" jdbcType="VARCHAR"></result>
+            <result property="age" column="s.age" jdbcType="INTEGER"></result>
+        </collection>
+    </resultMap>
+
+
+    <select id="select" resultMap="courseUser">
+        select *
+        from s_course c ,  s_student s, s_teacher t
+        where c.c_id = s.s_id  and  c.c_id = s.s_id
+
+    </select>
+</mapper>

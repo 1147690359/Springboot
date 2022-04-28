@@ -31,9 +31,10 @@ public class ImgService  {
         String suffixName = fileName.substring(fileName.lastIndexOf("."));
         System.out.println("上传的后缀名为：" + suffixName);
 
+
         fileName = UUID.randomUUID() + suffixName;
 
-        // 上传文件/图像到指定文件夹（这里可以改成你想存放地址的相对路径）
+        // 上传文件/图像的指定文件夹（这里可以改成你想存放地址的相对路径）
         File savePos = new File("src/main/resources/static/images");
         if(!savePos.exists()){  // 不存在，则创建该文件夹
             savePos.mkdir();

@@ -78,8 +78,8 @@ public class UserController {
      * 账号登录
      */
     @PostMapping("/index")
-    public Map<String, Object> index(@RequestBody User user, HttpSession session){
-        return userServiceimp.index(user,session);
+    public Map<String, Object> index(@RequestBody User user){
+        return userServiceimp.index(user);
     }
 
 

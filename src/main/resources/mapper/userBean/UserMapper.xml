@@ -53,7 +53,7 @@
 
     <update id="updateUser">
         update t_user
-        set username = #{username},password = #{password},name = #{name},address = #{address},email = #{email},baseImg = #{baseImg}
+        set username = #{username},name = #{name},address = #{address},email = #{email},baseImg = #{baseImg}
         where id = #{id}
     </update>
 
@@ -67,8 +67,21 @@
     <select id="imgUrl" resultType="java.lang.String">
         select imgUrl
         from t_user
-        where username=#{username} and password=#{password}
+        where username=#{username}
     </select>
+
+    <select id="password" resultType="java.lang.String">
+        select password
+        from t_user
+        where username=#{username}
+    </select>
+
+    <select id="selectName" resultType="com.example.mybatis.inuser.user.User">
+        select username
+        from t_user
+        where username=#{username}
+    </select>
+
 
 
 

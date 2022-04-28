@@ -35,4 +35,7 @@ public interface UserMapper {
 
      String imgUrl(User user);
 
+     String password(String username);
+
+     List<User> selectName(String username);
 }

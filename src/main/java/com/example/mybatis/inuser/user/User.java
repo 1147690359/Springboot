@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 @NoArgsConstructor
 public class User {
     private int id;
+
+    private String updateUsername;   //未修改前的账号
     private String username;
     private String password;
     private String name;

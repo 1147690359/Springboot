@@ -83,6 +83,12 @@ public class UserController {
     }
 
 
+    @GetMapping("/hell")
+    public String hell(){
+        return "hell";
+    }
+
+
 
 
 

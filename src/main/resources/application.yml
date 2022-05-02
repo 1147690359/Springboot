@@ -9,6 +9,8 @@ spring:
     password: bitware2022dev
   mvc:
     static-path-pattern: /static/**
+  main:
+    allow-circular-references: true
 
   devtools:
     restart:

@@ -6,7 +6,7 @@ import com.example.mybatis.inuser.mapper.UserMapper;
 
 import com.example.mybatis.inuser.user.User;
 import com.example.mybatis.util.SecurityUtils;
-import com.example.mybatis.util.TokenUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -119,29 +119,27 @@ public class UserServiceimp  {
     public Map<String, Object> index(User user){
         Map<String,Object> map=new HashMap<>();
 
-        //获取数据库中的密码
-        String encode = userMapper.password(user.getUsername());
-        if (encode == null){
-            map.put("index","null");
-            return map;
-        }
-        //数据库中的密码与 输入的密码进行判断
-        boolean aa = SecurityUtils.matchesPassword(user.getPassword(), encode);
-
-        System.out.println(aa);
-
-        if(!aa){
-            map.put("index",1);
-            return map;
-        }
-        map.put("index","have");
+//        //获取数据库中的密码
+//        String encode = userMapper.password(user.getUsername());
+//        if (encode == null){
+//            map.put("index","null");
+//            return map;
+//        }
+//        //数据库中的密码与 输入的密码进行判断
+//        boolean aa = SecurityUtils.matchesPassword(user.getPassword(), encode);
+//
+//        System.out.println(aa);
+//
+//        if(!aa){
+//            map.put("index",1);
+//            return map;
+//        }
+//        map.put("index","have");
 
         //获取图片的位置
             String imgUrl = userMapper.imgUrl(user);
             map.put("imgUrl",imgUrl);
-       // 签发的Token
-            String token= TokenUtil.sign(user);
-            map.put("sccessToke",token);
+
 
         return map;
     }

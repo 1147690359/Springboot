@@ -15,8 +15,8 @@ public class HomeController {
     @Resource
     private HomeService homeService;
 
-//    @GetMapping("/number")
-//    public List<NumUser> Num(){
-//        return homeService.Num();
-//    }
+    @GetMapping("/number")
+    public void Num(){
+         homeService.Num();
+    }
 }

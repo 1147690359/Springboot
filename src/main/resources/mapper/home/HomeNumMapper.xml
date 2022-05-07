@@ -17,6 +17,21 @@
         #{}  本质 占位符赋值
     -->
 
+    <select id="date" resultType="com.example.mybatis.home.user.NumUser">
+        select *
+        from t_HomeNumber
+        where date=#{date}
+    </select>
+
+    <insert id="insert">
+        insert into t_HomeNumber value (null,#{number},#{date})
+    </insert>
+
+    <update id="update">
+        update t_HomeNumber
+        set number = #{number}
+        where date = #{date}
+    </update>
 
 
 

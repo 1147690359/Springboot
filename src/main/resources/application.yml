@@ -29,4 +29,4 @@ file:
 
 # mybatis配置
 mybatis:
-  mapper-locations: classpath:mapper/userBean/*.xml    # mapper映射文件位置
+  mapper-locations: classpath:mapper/**/*.xml    # mapper映射文件位置

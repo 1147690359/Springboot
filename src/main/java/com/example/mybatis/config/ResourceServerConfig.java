@@ -28,7 +28,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 		http.addFilterBefore(corsFilter(), ChannelProcessingFilter.class).csrf().disable().authorizeRequests()
 //		.antMatchers("/static/**", "/first/**", "/user/**").permitAll()
-				.antMatchers("/static/images/**","/index").permitAll()
+				.antMatchers("/static/images/**","/index","/number").permitAll()
 				.antMatchers("/**").authenticated();
 
 	}

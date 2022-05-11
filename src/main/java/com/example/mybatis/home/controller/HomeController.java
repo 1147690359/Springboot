@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 public class HomeController {
@@ -15,8 +16,19 @@ public class HomeController {
     @Resource
     private HomeService homeService;
 
+    /**
+     *访问的数量
+     */
     @GetMapping("/number")
-    public void Num(){
-         homeService.Num();
+    public Map<String,Object> Num(){
+         return homeService.Num();
+    }
+
+    /**
+     *所有的日期对应的数量
+     */
+    @GetMapping("/numUser")
+    public List<NumUser> select(){
+        return homeService.select();
     }
 }

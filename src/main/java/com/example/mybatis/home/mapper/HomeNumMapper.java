@@ -26,4 +26,6 @@ public interface HomeNumMapper {
      * 修改数据库中的数量
      */
     int update(NumUser numUser);
+
+    List<NumUser> select();
 }

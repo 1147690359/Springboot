@@ -33,6 +33,11 @@
         where date = #{date}
     </update>
 
+    <select id="select" resultType="com.example.mybatis.home.user.NumUser">
+        select *
+        from t_HomeNumber
+    </select>
+
 
 
 </mapper>
